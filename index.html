@@ -25,16 +25,16 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col">
-          <h2 style="font-size:30px;">GraspVLA: a Grasping Foundation Model <br>
+          <h2 style="font-size:45px;">GraspVLA: a Grasping Foundation Model <br>
             Pre-trained on Billion-scale Synthetic Action Data</h2>
-          <h4 style="color:#6e6e6e;"> In submission </h4>
+          <!-- <h4 style="color:#6e6e6e;"> In submission </h4> -->
           <hr>
           <h6>
             <a href="https://shengliangd.github.io/about/">Shengliang Deng</a><sup>1,3*</sup>&nbsp; &nbsp;
             <a href="https://miyandoris.github.io/">Mi Yan</a><sup>1,2*</sup>&nbsp; &nbsp;
             <a href="https://songlin.github.io/">Songlin Wei</a><sup>1,2</sup>&nbsp; &nbsp;
             <a>Haixin Ma</a><sup>1</sup>&nbsp; &nbsp;
-            <a>Yuxin Yang</a><sup>1</sup>&nbsp; &nbsp;
+            <a>Yuxin Yang</a><sup>1</sup>&nbsp; &nbsp; <br>
             <a href="https://jychen18.github.io/">Jiayi Chen</a><sup>1,2</sup>&nbsp; &nbsp;
             <a href="https://i.cs.hku.hk/~heming/">Heming Cui</a><sup>3</sup>&nbsp; &nbsp;
             <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en">Zhizheng Zhang</a><sup>1,4</sup>&nbsp; &nbsp;
@@ -52,16 +52,23 @@
               <br>
             </p>
 
-            <!-- <div class="row justify-content-center">
+            <div class="row justify-content-center">
               <div class="column">
-                <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2401.07745" role="button"
-                    target="_blank">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2401.07745" role="button" target="_blank" style="background-color: #d3d3d3d2;color: black">
                     <i class="fa fa-file"></i> Paper </a> </p>
               </div>
               <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/PKU-EPIC/MaskClustering" role="button" target="_blank" disabled=1>
-                <i class="fa fa-github-alt"></i> Code </a> </p>
-              </div> -->
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/PKU-EPIC/MaskClustering" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
+              <i class="fa fa-github-alt"></i> Checkpoint</a> </p>
+            </div>
+              <div class="column">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/PKU-EPIC/MaskClustering" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
+                <i class="fa fa-github-alt"></i> Code</a> </p>
+              </div>
+              <div class="column">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/PKU-EPIC/MaskClustering" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
+              <i class="fa fa-github-alt"></i> Dataset</a> </p>
+              </div>
             </div>
 
             <!-- <div>
@@ -76,547 +83,143 @@
   </div>
 </section>
 
-
+<!-- teaser -->
 <section>
-  <div class="container" style="width:70%" id="main-video">
-    <div class="row">
-      <div class="col-12">
-        <div class="row justify-content-center" style="align-items:center; display:flex;">
-          <video id="main-video" autobuffer muted autoplay loop controls>
-            <source src="videos/teaser.mp4" type="video/mp4">
-          </video>
-        </div>
-      </div>
-    </div>
-  </div>
+  <div class="container" style="width:70%" id="teaser">
+    <img src="images/teaser.jpg" width="100%"> 
   </div>
 </section>
+<br>
 
 <!-- abstract -->
 <section>
   <div class="container" style="width:70%">
     <div class="row">
       <div class="col-12">
-        <h2><strong>1. Abstract</strong></h2>
+        <h2><strong>Abstract</strong></h2>
         <hr style="margin-top:0px">
         <p class="text-justify">
-          Open-vocabulary 3D instance segmentation is cutting-edge for its ability to segment 3D instances without predefined categories. However, progress in 3D lags behind its 2D counterpart due to limited annotated 3D data. To address this, recent works first generate 2D open-vocabulary masks through 2D models and then merge them into 3D instances based on metrics calculated between two neighboring frames. In contrast to these local metrics, we propose a novel metric, view consensus rate, to enhance the utilization of multi-view observations. The key insight is that two 2D masks should be deemed part of the same 3D instance if a significant number of other 2D masks from different views contain both these two masks. Using this metric as edge weight, we construct a global mask graph where each mask is a node. Through iterative clustering of masks showing high view consensus, we generate a series of clusters, each representing a distinct 3D instance. Notably, our model is training-free. Through extensive experiments on publicly available datasets, including ScanNet++, ScanNet200 and MatterPort3D, we demonstrate that our method achieves state-of-the-art performance in open-vocabulary 3D instance segmentation.  
+          In the era of large models, increasing efforts have been dedicated to developing embodied foundation models for general-purpose applications. They enable zero-shot generalization, exhibit scaling behaviors, and support few-shot post-training for specialized demands. However, their performance relies heavily on large-scale robotic data, which is challenging to collect at scale. We find that leveraging large-scale synthetic robotic data offers a scalable and cost-efficient method for building embodied foundation models, yet it has previously been underestimated. In this paper, we introduce GraspVLA, a Vision-Language-Action (VLA) model for grasping, pretrained on large-scale synthetic action data as a foundational model for this essential skill. To achieve this, we first curate a billion-scale grasping dataset in simulation, featuring photorealistic rendering and extensive domain randomization. We further propose an effective co-training strategy to integrate both perception and control tasks into a unified next-token-prediction training paradigm. This enables the unprecedented strong generalizability of GraspVLA across various factors, including spatial positions, backgrounds, distractions, and lighting variations in real-world environments. Besides, this generalizability can be scalable in two key dimensions: first, its zero-shot generalizability improves with increasing data scale; second, it can generalize to novel categories by being co-trained with grounding tasks using Internet data. In addition, we also showcase that GraspVLA can support a few-shot post-training to acquire complex grasping patterns aligned with human preference. We perform extensive experiments to highlight GraspVLA's superior generalizability, examine its scaling behaviors, and illustrate its potential for few-shot post-training.  
         </p>
       </div>
     </div>
   </div>
 </section>
 <br>
-<br>
 
-<!-- scene_selector -->
+<!-- zero-shot -->
 <section>
-  <div class="container" style="width:100%">
+  <div class="container" style="width:70%" id="zero-shot-video">
     <div class="row">
       <div class="col-12">
-        <h2><strong>2. Qualitative Results on ScanNet</strong></h2>
-        <hr style="margin-top:0px">
-
-        <b>Click the thumbnails below to select scenes.</b>
-        <div class="base-row" style="display: inline-block">
-          <button class="slide-arrow" id="slide-arrow-prev" onclick="slide_left()">
-              &#8249;
-          </button>
-          <div class="base-row thumbnail-row" , id="thumbnails-scroll">
-            <div class="base-col thumbnail-col">
-                <button class="thumbnail-btn" id="thumb-1" onclick="select_one_scene('scannet0608_00')">
-                    <img src="images/thumbnails/0608.png" class="thumbnails"  />
-                    ScanNet 0608_00
-                </button>
-            </div>
-            <div class="base-col thumbnail-col">
-              <button class="thumbnail-btn" id="thumb-0" onclick="select_one_scene('scannet0050_00')">
-                  <img src="images/thumbnails/0050.png" class="thumbnails" />
-                  ScanNet 0050_00
-              </button>
-            </div>
-            <div class="base-col thumbnail-col">
-              <button class="thumbnail-btn" id="thumb-0" onclick="select_one_scene('scannet0549_00')">
-                  <img src="images/thumbnails/0549.png" class="thumbnails" />
-                  ScanNet 0549_00
-              </button>
-            </div>
-            <div class="base-col thumbnail-col">
-              <button class="thumbnail-btn" id="thumb-0" onclick="select_one_scene('scannet0568_00')">
-                  <img src="images/thumbnails/0568.png" class="thumbnails" />
-                  ScanNet 0568_00
-              </button>
-            </div>
-            <div class="base-col thumbnail-col">
-              <button class="thumbnail-btn" id="thumb-0" onclick="select_one_scene('scannet0187_00')">
-                  <img src="images/thumbnails/0187.png" class="thumbnails" />
-                  ScanNet 0187_00
-              </button>
-            </div>
-            <div class="base-col thumbnail-col">
-              <button class="thumbnail-btn" id="thumb-0" onclick="select_one_scene('scannet0653_00')">
-                  <img src="images/thumbnails/0653.png" class="thumbnails" />
-                  ScanNet 0653_00
-              </button>
-            </div>
-            <div class="base-col thumbnail-col">
-              <button class="thumbnail-btn" id="thumb-0" onclick="select_one_scene('scannet0616_00')">
-                  <img src="images/thumbnails/0616.png" class="thumbnails" />
-                  ScanNet 0616_00
-              </button>
-            </div>
-          </div>
-          <button class="slide-arrow" id="slide-arrow-next" onclick="slide_right()">
-              &#8250;
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<br>
-<br>
-
-<section>
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="scene" id="scannet0050_00">
-          <h4><strong>3D Instance Segmentation</strong></h4>
-          <div class="sketchfab-embed-wrapper" width="80%"> 
-            <iframe title="ScanNet 0050_00" style="clip-path: inset(1px 1px)" width="80%" height="480" src="https://sketchfab.com/models/faf9692ba86248ad93977c043b4f8483/embed?autospin=0.2&autostart=1&camera=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"> </iframe> 
-          </div>
-          <p>
-            <b>Left click to rotate, right click to translate, scroll wheel to zoom.</b>
-          </p>
-
-          <h4><strong>Comparisons</strong></h4>
-          <p>
-            <b>Click the buttons below to select views.</b>
-          </p>
-
-          <div class="tabs">
-            <div class="tab" id="scannet0050_00_top_down_tab" onclick="showExamples('scannet0050_00_top_down_image', this)">Top-Down View</div>
-            <div class="tab" onclick="showExamples('scannet0050_00_view1', this)">View1</div>
-            <div class="tab" onclick="showExamples('scannet0050_00_view2', this)">View2</div>
-            <div class="tab" onclick="showExamples('scannet0050_00_view3', this)">View3</div>
-            <div class="tab" onclick="showExamples('scannet0050_00_view4', this)">View4</div>
-            <div class="tab" onclick="showExamples('scannet0050_00_view5', this)">View5</div>
-          </div>
-          
-          <div id="scannet0050_00_top_down_image" class="example">
-            <img src="images/comparison/0050_top.png" width="80%">
-          </div>
-          
-          <div id="scannet0050_00_view1" class="example">
-            <img src="images/comparison/0050_1.png" width="100%">
-          </div>
-  
-          <div id="scannet0050_00_view2" class="example">
-            <img src="images/comparison/0050_2.png" width="100%">
-          </div>
-  
-          <div id="scannet0050_00_view3" class="example">
-            <img src="images/comparison/0050_3.png" width="100%">
-          </div>
-  
-          <div id="scannet0050_00_view4" class="example">
-            <img src="images/comparison/0050_4.png" width="100%">
-          </div>
-  
-          <div id="scannet0050_00_view5" class="example">
-            <img src="images/comparison/0050_5.png" width="100%">
-          </div>
-  
-        </div>
-
-        <div class="scene" id="scannet0549_00">
-          <h4><strong>3D Instance Segmentation</strong></h4>
-          <div class="sketchfab-embed-wrapper" width="80%"> 
-            <iframe title="ScanNet 0549_00" style="clip-path: inset(1px 1px)" width="80%" height="480" src="https://sketchfab.com/models/6ebcc63c28b24484b6b8c9d949fd2497/embed?autospin=0.2&autostart=1&camera=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"> </iframe> 
-          </div>
-          <p>
-            <b>Left click to rotate, right click to translate, scroll wheel to zoom.</b>
-          </p>
-          <br>
-          <br>
-
-          <h4><strong>Comparisons</strong></h4>
-          <p>
-            <b>Click the buttons below to select views.</b>
-          </p>
-
-          <div class="tabs">
-            <div class="tab" id="scannet0549_00_top_down_tab" onclick="showExamples('scannet0549_00_top_down_image', this)">Top-Down View</div>
-            <div class="tab" onclick="showExamples('scannet0549_00_view1', this)">View1</div>
-            <div class="tab" onclick="showExamples('scannet0549_00_view2', this)">View2</div>
-            <div class="tab" onclick="showExamples('scannet0549_00_view3', this)">View3</div>
-            <div class="tab" onclick="showExamples('scannet0549_00_view4', this)">View4</div>
-            <div class="tab" onclick="showExamples('scannet0549_00_view5', this)">View5</div>
-          </div>
-          
-          <div id="scannet0549_00_top_down_image" class="example">
-            <img src="images/comparison/0549_top.png" width="80%">
-          </div>
-          
-          <div id="scannet0549_00_view1" class="example">
-            <img src="images/comparison/0549_1.png" width="100%">
-          </div>
-  
-          <div id="scannet0549_00_view2" class="example">
-            <img src="images/comparison/0549_2.png" width="100%">
-          </div>
-  
-          <div id="scannet0549_00_view3" class="example">
-            <img src="images/comparison/0549_3.png" width="100%">
-          </div>
-  
-          <div id="scannet0549_00_view4" class="example">
-            <img src="images/comparison/0549_4.png" width="100%">
-          </div>
-  
-          <div id="scannet0549_00_view5" class="example">
-            <img src="images/comparison/0549_5.png" width="100%">
-          </div>
-  
-        </div>
-  
-        <div class="scene" id="scannet0608_00">
-          <h4><strong>3D Instance Segmentation</strong></h4>
-          <div class="sketchfab-embed-wrapper" width="80%"> 
-            <iframe title="ScanNet 0608_00" style="clip-path: inset(1px 1px)" width="80%" height="480" src="https://sketchfab.com/models/ddafa61469b14702967135426d5a69a2/embed?autostart=1&camera=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"> </iframe> 
-          </div>
-          <p>
-            <b>Left click to rotate, right click to translate, scroll wheel to zoom.</b>
-          </p>
-          <br>
-          <br>
-
-          <h4><strong>Comparisons</strong></h4>
-          <p>
-            <b>Click the buttons below to select views.</b>
-          </p>
-          
-          <div class="tabs" width="70%">
-            <div class="tab" id="scannet0608_00_top_down_tab" onclick="showExamples('scannet0608_00_top_down_image', this)">Top-Down View</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view1', this)">View1</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view2', this)">View2</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view3', this)">View3</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view4', this)">View4</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view5', this)">View5</div>
-          </div>
-          
-          <div id="scannet0608_00_top_down_image" class="example">
-            <img src="images/comparison/0608_top.png" width="80%">
-          </div>
-          
-          <div id="scannet0608_00_view1" class="example">
-            <img src="images/comparison/0608_1.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view2" class="example">
-            <img src="images/comparison/0608_2.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view3" class="example">
-            <img src="images/comparison/0608_3.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view4" class="example">
-            <img src="images/comparison/0608_4.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view5" class="example">
-            <img src="images/comparison/0608_5.png" width="100%">
-          </div>
-          
-        </div>
-
-        <div class="scene" id="scannet0568_00">
-          <h4><strong>3D Instance Segmentation</strong></h4>
-          <div class="sketchfab-embed-wrapper" width="80%"> 
-            <iframe title="ScanNet 0568_00" style="clip-path: inset(1px 1px)" width="80%" height="480" src="https://sketchfab.com/models/1242d15414cd4a798e544a309bc4fd48/embed?autostart=1&camera=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"> </iframe> 
-          </div>
-          <p>
-            <b>Left click to rotate, right click to translate, scroll wheel to zoom.</b>
-          </p>
-          <br>
-          <br>
-
-          <h4><strong>Comparisons</strong></h4>
-          <p>
-            <b>Click the buttons below to select views.</b>
-          </p>
-          
-          <div class="tabs" width="70%">
-            <div class="tab" id="scannet0608_00_top_down_tab" onclick="showExamples('scannet0608_00_top_down_image', this)">Top-Down View</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view1', this)">View1</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view2', this)">View2</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view3', this)">View3</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view4', this)">View4</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view5', this)">View5</div>
-          </div>
-          
-          <div id="scannet0608_00_top_down_image" class="example">
-            <img src="images/comparison/0608_top.png" width="80%">
-          </div>
-          
-          <div id="scannet0608_00_view1" class="example">
-            <img src="images/comparison/0608_1.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view2" class="example">
-            <img src="images/comparison/0608_2.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view3" class="example">
-            <img src="images/comparison/0608_3.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view4" class="example">
-            <img src="images/comparison/0608_4.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view5" class="example">
-            <img src="images/comparison/0608_5.png" width="100%">
-          </div>
-          
-        </div>
-
-        <div class="scene" id="scannet0187_00">
-          <h4><strong>3D Instance Segmentation</strong></h4>
-          <div class="sketchfab-embed-wrapper" width="80%"> 
-            <iframe title="ScanNet 0187_00" style="clip-path: inset(1px 1px)" width="80%" height="480" src="https://sketchfab.com/models/4f9e815021424ef7965018e3cf3ba55c/embed?autostart=1&camera=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"> </iframe> 
-          </div>
-          <p>
-            <b>Left click to rotate, right click to translate, scroll wheel to zoom.</b>
-          </p>
-          <br>
-          <br>
-
-          <h4><strong>Comparisons</strong></h4>
-          <p>
-            <b>Click the buttons below to select views.</b>
-          </p>
-          
-          <div class="tabs" width="70%">
-            <div class="tab" id="scannet0608_00_top_down_tab" onclick="showExamples('scannet0608_00_top_down_image', this)">Top-Down View</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view1', this)">View1</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view2', this)">View2</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view3', this)">View3</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view4', this)">View4</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view5', this)">View5</div>
-          </div>
-          
-          <div id="scannet0608_00_top_down_image" class="example">
-            <img src="images/comparison/0608_top.png" width="80%">
-          </div>
-          
-          <div id="scannet0608_00_view1" class="example">
-            <img src="images/comparison/0608_1.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view2" class="example">
-            <img src="images/comparison/0608_2.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view3" class="example">
-            <img src="images/comparison/0608_3.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view4" class="example">
-            <img src="images/comparison/0608_4.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view5" class="example">
-            <img src="images/comparison/0608_5.png" width="100%">
-          </div>
-          
-        </div>
-
-        <div class="scene" id="scannet0653_00">
-          <h4><strong>3D Instance Segmentation</strong></h4>
-          <div class="sketchfab-embed-wrapper" width="80%"> 
-            <iframe title="ScanNet 0653_00" style="clip-path: inset(1px 1px)" width="80%" height="480" src="https://sketchfab.com/models/fb61cd372a0c493fb94689e9bd08e686/embed?autostart=1&camera=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"> </iframe> 
-          </div>
-          <p>
-            <b>Left click to rotate, right click to translate, scroll wheel to zoom.</b>
-          </p>
-          <br>
-          <br>
-
-          <h4><strong>Comparisons</strong></h4>
-          <p>
-            <b>Click the buttons below to select views.</b>
-          </p>
-          
-          <div class="tabs" width="70%">
-            <div class="tab" id="scannet0608_00_top_down_tab" onclick="showExamples('scannet0608_00_top_down_image', this)">Top-Down View</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view1', this)">View1</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view2', this)">View2</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view3', this)">View3</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view4', this)">View4</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view5', this)">View5</div>
-          </div>
-          
-          <div id="scannet0608_00_top_down_image" class="example">
-            <img src="images/comparison/0608_top.png" width="80%">
-          </div>
-          
-          <div id="scannet0608_00_view1" class="example">
-            <img src="images/comparison/0608_1.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view2" class="example">
-            <img src="images/comparison/0608_2.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view3" class="example">
-            <img src="images/comparison/0608_3.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view4" class="example">
-            <img src="images/comparison/0608_4.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view5" class="example">
-            <img src="images/comparison/0608_5.png" width="100%">
-          </div>
-          
-        </div>
-
-        <div class="scene" id="scannet0616_00">
-          <h4><strong>3D Instance Segmentation</strong></h4>
-          <div class="sketchfab-embed-wrapper" width="80%"> 
-            <iframe title="ScanNet 0616_00" style="clip-path: inset(1px 1px)" width="80%" height="480" src="https://sketchfab.com/models/e8388403458f42aaaa3e0e557c6b19e0/embed?autostart=1&camera=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen" mozallowfullscreen="true" webkitallowfullscreen="true"> </iframe> 
-          </div>
-          <p>
-            <b>Left click to rotate, right click to translate, scroll wheel to zoom.</b>
-          </p>
-          <br>
-          <br>
-
-          <h4><strong>Comparisons</strong></h4>
-          <p>
-            <b>Click the buttons below to select views.</b>
-          </p>
-          
-          <div class="tabs" width="70%">
-            <div class="tab" id="scannet0608_00_top_down_tab" onclick="showExamples('scannet0608_00_top_down_image', this)">Top-Down View</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view1', this)">View1</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view2', this)">View2</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view3', this)">View3</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view4', this)">View4</div>
-            <div class="tab" onclick="showExamples('scannet0608_00_view5', this)">View5</div>
-          </div>
-          
-          <div id="scannet0608_00_top_down_image" class="example">
-            <img src="images/comparison/0608_top.png" width="80%">
-          </div>
-          
-          <div id="scannet0608_00_view1" class="example">
-            <img src="images/comparison/0608_1.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view2" class="example">
-            <img src="images/comparison/0608_2.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view3" class="example">
-            <img src="images/comparison/0608_3.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view4" class="example">
-            <img src="images/comparison/0608_4.png" width="100%">
-          </div>
-  
-          <div id="scannet0608_00_view5" class="example">
-            <img src="images/comparison/0608_5.png" width="100%">
-          </div>
-          
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<br>
-<br>
-<br>
-
-<section>
-  <div class="container" style="width:70%" id="Pharmacy-gaussian-video">
-    <div class="row">
-      <div class="col-12">
-        <h2><strong>3. Combination with Gaussian Splatting</strong></h2>
+        <h2><strong>Zero-Shot Evaluation</strong></h2>
         <hr style="margin-top:0px">
         <p class="text-justify">
-          We integrate our algorithm with Gaussian splatting and test it on a real-world medicine shelf. Using Gaussian centers as the reconstructed point cloud, we establish pixel-point correspondence based on rendering weight, effectively segmenting all medicine bottles and boxes. This underscores the value of our work in offline semantic mapping for AR/VR and robotics.
+          Pre-trained on our billion-scale dataset, GraspVLA demonstrates strong zero-shot generalizability across 6 aspects, including distractor, spatial pose, category, lighting, background, and close-loop actions.
         </p>
-        <div class="row justify-content-center" style="align-items:center; display:flex; width:80%;">
-          <video id="main-video" autobuffer muted autoplay loop controls>
-            <source src="videos/gaussian.mp4" type="video/mp4">
+
+        <h5><strong>1. Generalization to distractors</strong></h5>
+        <p class="text-justify">
+          Cluttered scenes with 30+ distractors.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/1-dense.mp4" type="video/mp4">
           </video>
         </div>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
-<br>
-<br>
-
-
-<section>
-  <div class="container" style="width:70%" id="Pharmacy-gaussian-video">
-    <div class="row">
-      <div class="col-12">
-        <h2><strong>4. Quantitative Results</strong></h2>
-        <hr style="margin-top:0px">
-          Zero-shot 3D instance segmentation results on ScanNet++ and MatterPort3D. Our method outperform all baselines on all metrics significantly.
-          <div id="table">
-            <img src="images/table.png" width="100%">
-          </div>
-      </div>
-    </div>
-  </div>
-  </div>
-</section>
-<br>
-<br>
-
-
-<section>
-  <div class="container" style="width:70%">
-    <div class="row">
-      <div class="col-12">
-        <h2><strong>5. Method</strong></h2>
-        <div style="position: relative; padding-bottom: 56.25%; /* 16:9 比例 */">
-          <iframe src="https://www.youtube.com/embed/uB_gwCZ_Clo" style="position: absolute; width: 100%; height: 100%; left: 0; top: 0;" frameborder="0" allowfullscreen></iframe>
+        <br>
+        <p class="text-justify">
+          Dynamic distractors.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/1-distractor.mp4" type="video/mp4">
+          </video>
         </div>
+        <br>
+
+        <h5><strong>2. Generalization to lighting variations</strong></h5>
+        <p class="text-justify">
+          Various lighting conditions. In the second video, even when the object is moved to a new location under dark lighting conditions, GraspVLA can still track and grasp it.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/2-light.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+        <br>
+
+        <h5><strong>3. Generalization to spatial variations</strong></h5>
+        <p class="text-justify">
+          Balls at different heights.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/3-height.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+        <p class="text-justify">
+          Eggs with different planar poses.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/3-planar.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+        <h5><strong>4. Generalization to background variations</strong></h5>
+        <p class="text-justify">
+          Table with different textures.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/4-background-desk.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+        <p class="text-justify">
+          Wall with changing colors.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/4-background-wall.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+        <h5><strong>5. Generalization to categories</strong></h5>
+        <p class="text-justify">
+          Co-trained with grounding tasks using Internet data, GraspVLA can generalize to novel categories without any action label.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/5-category.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+        <h5><strong>6. Closed-loop control</strong></h5>
+        <p class="text-justify">
+          GraspVLA can automatically make closed-loop adjustments in response to disturbances until the task is completed.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="40%">
+            <source src="videos/6-closed-loop.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
       </div>
     </div>
   </div>
   </div>
 </section>
 <br>
-<br>
-
-
-<div class="container" style="width:70%">
-  <div class="row ">
-    <div class="col-12">
-      <h2><strong>6. Related Work</strong></h2>
-      <!-- <hr style="margin-top:0px"> -->
-      <p><a href="https://github.com/shiyoung77/OVIR-3D">OVIR-3D: Open-Vocabulary 3D Instance Retrieval Without Training on 3D Data</a></p>
-      <p><a href="https://open3dis.github.io/">Open3DIS: Open-Vocabulary 3D Instance Segmentation with 2D Mask Guidance</a></p>
-      <p><a href="https://github.com/yd-yin/SAI3D">SAI3D: Segment Any Instance in 3D with Open Vocabularies</a></p>
-      <p><a href="https://zju3dv.github.io/sam_graph/">SAM-guided Graph Cut for 3D Instance Segmentation</a></p>
-      <p><a href="https://openmask3d.github.io/">OpenMask3D: Open-Vocabulary 3D Instance Segmentation</a></p>
-      <p><a href="https://pengsongyou.github.io/openscene">OpenScene: 3D Scene Understanding with Open Vocabularies</a></p>
-      </pre>
-    </div>
-  </div>
-</div>
 <br>
 
 
@@ -626,8 +229,7 @@
     <div class="col-12">
       <h2><strong>7. Contact</strong></h2>
       <hr style="margin-top:0px">
-      <p>If you have any questions, please feel free to contact <b>Mi Yan</b> at dorisyan@pku.edu.cn, 
-         and <b>He Wang</b> at hewang@pku.edu.cn.
+      <p>If you have any questions, please feel free to contact <b>Shengliang Deng</b> at shengliangd@outlook.com and <b>Mi Yan</b> at dorisyan@pku.edu.cn.
       </p>
       </pre>
     </div>
@@ -639,9 +241,6 @@
   Thanks to <a href="https://lioryariv.github.io/" target="_blank">Lior Yariv</a> for the <a
     href="https://lioryariv.github.io/idr/" target="_blank">website template</a>.
 </footer>
-
-<script src="js/script.js"></script>
-<!-- <script type="text/javascript" id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script> -->
 
 </body>
 </html>
