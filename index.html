@@ -222,6 +222,65 @@
 <br>
 <br>
 
+<!-- post-train -->
+<section>
+  <div class="container" style="width:70%" id="zero-shot-video">
+    <div class="row">
+      <div class="col-12">
+        <h2><strong>Efficient post-training</strong></h2>
+        <hr style="margin-top:0px">
+
+        <h5><strong>1. Industry: new vocabulary</strong></h5>
+        <p class="text-justify">
+          In industrial scenarios, although our pre-trained GraspVLA can grasp any part, it struggles to identify parts with special names.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="40%">
+            <source src="videos/industry-fail.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+        <p class="text-justify">
+          A few data with only bounding box annotation helps GraspVLA master all the rare parts.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/industry.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+        <h5><strong>2. Retail: novel action patterns</strong></h5>
+        <p class="text-justify">
+          In retail scenario, with a few trajectories on one kind of bottles, GraspVLA learns to sequentially pick up bottles from a densely-packed environment. This behavior can also be transferred to bottles unseen in post-training.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/retail.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+        <h5><strong>3. Home: novel action patterns</strong></h5>
+        <p class="text-justify">
+          In retail scenario, with a few trajectories on one kind of bottles, GraspVLA learns to sequentially pick up bottles from a densely-packed environment. This behavior can also be transferred to bottles unseen in post-training.
+        </p>
+        <div class="row justify-content-center" style="align-items:center; display:flex">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
+            <source src="videos/retail.mp4" type="video/mp4">
+          </video>
+        </div>
+        <br>
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<br>
+<br>
+
 
 <!-- Contact -->
 <div class="container" style="width:70%">
