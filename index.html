@@ -34,8 +34,11 @@
             <a href="https://miyandoris.github.io/">Mi Yan</a><sup>1,2*</sup>&nbsp; &nbsp;
             <a href="https://songlin.github.io/">Songlin Wei</a><sup>1,2</sup>&nbsp; &nbsp;
             <a>Haixin Ma</a><sup>1</sup>&nbsp; &nbsp;
-            <a>Yuxin Yang</a><sup>1</sup>&nbsp; &nbsp; <br>
-            <a href="https://jychen18.github.io/">Jiayi Chen</a><sup>1,2</sup>&nbsp; &nbsp;
+            <a>Yuxin Yang</a><sup>1</sup>&nbsp; &nbsp; 
+            <a href="https://jychen18.github.io/">Jiayi Chen</a><sup>1,2</sup>&nbsp; &nbsp; <br>
+            <a>Zhiqi Zhang</a><sup>1,2</sup>&nbsp; &nbsp; 
+            <a>Taoyu Yang</a><sup>2</sup>&nbsp; &nbsp; 
+            <a>Xuheng Zhang</a><sup>2</sup>&nbsp; &nbsp; 
             <a href="https://i.cs.hku.hk/~heming/">Heming Cui</a><sup>3</sup>&nbsp; &nbsp;
             <a href="https://scholar.google.com/citations?user=X7M0I8kAAAAJ&hl=en">Zhizheng Zhang</a><sup>1,4</sup>&nbsp; &nbsp;
             <a href="https://hughw19.github.io/">He Wang</a><sup>1,2,4†</sup>
@@ -54,19 +57,19 @@
 
             <div class="row justify-content-center">
               <div class="column">
-                <p class="mb-5"><a class="btn btn-large btn-light" href="https://arxiv.org/abs/2401.07745" role="button" target="_blank" style="background-color: #d3d3d3d2;color: black">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="???" role="button" target="_blank" style="background-color: #d3d3d3d2;color: black">
                     <i class="fa fa-file"></i> Paper </a> </p>
               </div>
               <div class="column">
-                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/PKU-EPIC/MaskClustering" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="???" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
               <i class="fa fa-github-alt"></i> Checkpoint</a> </p>
             </div>
               <div class="column">
-                  <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/PKU-EPIC/MaskClustering" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
+                  <p class="mb-5"><a class="btn btn-large btn-light" href="???" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
                 <i class="fa fa-github-alt"></i> Code</a> </p>
               </div>
               <div class="column">
-                <p class="mb-5"><a class="btn btn-large btn-light" href="https://github.com/PKU-EPIC/MaskClustering" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
+                <p class="mb-5"><a class="btn btn-large btn-light" href="???" role="button" target="_blank" disabled=1 style="background-color: #d3d3d3d2;color: black">
               <i class="fa fa-github-alt"></i> Dataset</a> </p>
               </div>
             </div>
@@ -99,7 +102,7 @@
         <h2><strong>Abstract</strong></h2>
         <hr style="margin-top:0px">
         <p class="text-justify">
-          In the era of large models, increasing efforts have been dedicated to developing embodied foundation models for general-purpose applications. They enable zero-shot generalization, exhibit scaling behaviors, and support few-shot post-training for specialized demands. However, their performance relies heavily on large-scale robotic data, which is challenging to collect at scale. We find that leveraging large-scale synthetic robotic data offers a scalable and cost-efficient method for building embodied foundation models, yet it has previously been underestimated. In this paper, we introduce GraspVLA, a Vision-Language-Action (VLA) model for grasping, pretrained on large-scale synthetic action data as a foundational model for this essential skill. To achieve this, we first curate a billion-scale grasping dataset in simulation, featuring photorealistic rendering and extensive domain randomization. We further propose an effective co-training strategy to integrate both perception and control tasks into a unified next-token-prediction training paradigm. This enables the unprecedented strong generalizability of GraspVLA across various factors, including spatial positions, backgrounds, distractions, and lighting variations in real-world environments. Besides, this generalizability can be scalable in two key dimensions: first, its zero-shot generalizability improves with increasing data scale; second, it can generalize to novel categories by being co-trained with grounding tasks using Internet data. In addition, we also showcase that GraspVLA can support a few-shot post-training to acquire complex grasping patterns aligned with human preference. We perform extensive experiments to highlight GraspVLA's superior generalizability, examine its scaling behaviors, and illustrate its potential for few-shot post-training.  
+          Embodied foundation models are gaining increasing attention for their zero-shot generalization, scalability, and adaptability to new tasks through few-shot post-training. However, existing models rely heavily on real-world data, which is costly and labor-intensive to collect. Synthetic data offers a cost-effective alternative, yet its potential remains largely underexplored. To bridge this gap, we explore the feasibility of training Vision-Language-Action (VLA) models entirely with large-scale synthetic action data. We curate SynGrasp-1B, a billion-frame robotic grasping dataset generated in simulation with photorealistic rendering and extensive domain randomization. Building on this, we present GraspVLA, a VLA model pretrained on large-scale synthetic action data as a foundational model for grasping tasks. GraspVLA integrates autoregressive perception tasks and flow-matching-based action generation into a unified Chain-of-Thought process, enabling joint training on synthetic action data and Internet semantics data. This design helps mitigate sim-to-real gaps and facilitates the transfer of learned actions to a broader range of Internet-covered objects, achieving open-vocabulary generalization in grasping. Extensive evaluations across real-world and simulation benchmarks demonstrate GraspVLA's advanced zero-shot generalizability and few-shot adaptability to specific human preferences. We will release SynGrasp-1B dataset and pre-trained weights to benefit the community.
         </p>
       </div>
     </div>
@@ -261,13 +264,13 @@
         </div>
         <br>
 
-        <h5><strong>3. Home: novel action patterns</strong></h5>
+        <h5><strong>3. Home: align with human preference</strong></h5>
         <p class="text-justify">
-          In retail scenario, with a few trajectories on one kind of bottles, GraspVLA learns to sequentially pick up bottles from a densely-packed environment. This behavior can also be transferred to bottles unseen in post-training.
+          GraspVLA learns to grasp mugs with specific grasping pose preference from a few demonstrations, and generalize to new mugs.
         </p>
         <div class="row justify-content-center" style="align-items:center; display:flex">
-          <video id="zero-shot-video" autobuffer muted autoplay loop width="90%">
-            <source src="videos/retail.mp4" type="video/mp4">
+          <video id="zero-shot-video" autobuffer muted autoplay loop width="60%">
+            <source src="videos/home.mp4" type="video/mp4">
           </video>
         </div>
         <br>
@@ -281,12 +284,62 @@
 <br>
 <br>
 
+<!-- SynGrasp-1B -->
+<section>
+  <div class="container" style="width:70%" id="zero-shot-video">
+    <div class="row">
+      <div class="col-12">
+        <h2><strong>SynGrasp-1B</strong></h2>
+        <hr style="margin-top:0px">
+        <p class="text-justify">
+          We introduce SynGrasp-1B, a billion-frame grasping dataset in simulation, featuring photorealistic rendering and extensive domain randomization, including initial robot pose, object pose, background, lighting, and material. 
+        </p>
+        <direct class="row justify-content-center" style="align-items:center; display:flex">
+        <video id="zero-shot-video" autobuffer muted autoplay loop controls width="90%">
+          <source src="videos/simdata.mp4" type="video/mp4">
+        </video>
+        
+        <p class="text-justify">
+          Data generation pipeline: We select over 10,000 object meshes from 240 categories in Objaverse and randomly place them on the table (left). We then use BoDex to generate stable grasps for each object and use CuRobo to plan grasping trajectories (middle). Finally, we apply domain randomization to materials, lighting, camera views, and backgrounds to simulate and render the trajectories (right). 
+        </p>
+        <div class="container" style="width:90%" id="teaser">
+          <img src="images/datagen.png" width="100%"> 
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<br>
+<br>
+
+
+<!-- Model Architecture -->
+<section>
+  <div class="container" style="width:70%" id="zero-shot-video">
+    <div class="row">
+      <div class="col-12">
+        <h2><strong>Model</strong></h2>
+        <hr style="margin-top:0px">        
+        <p class="text-justify">
+          GraspVLA consists of an autoregressive vision-language backbone and a flow-matching based action expert. It exploits the synergy between Internet grounding data and synthetic action data with a Progressive Action Generation mechanism: the model first predicts 2D bounding boxes of the target object for both synthetic data and web data, and additionally generates grasp pose and chunked actions for synthetic data.
+        </p>
+        <div class="container" style="width:90%" id="teaser">
+          <img src="images/pipeline.png" width="100%"> 
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+<br>
+
 
 <!-- Contact -->
 <div class="container" style="width:70%">
   <div class="row ">
     <div class="col-12">
-      <h2><strong>7. Contact</strong></h2>
+      <h2><strong>Contact</strong></h2>
       <hr style="margin-top:0px">
       <p>If you have any questions, please feel free to contact <b>Shengliang Deng</b> at shengliangd@outlook.com and <b>Mi Yan</b> at dorisyan@pku.edu.cn.
       </p>
